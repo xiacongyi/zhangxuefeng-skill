@@ -13,7 +13,6 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Agent Skills](https://img.shields.io/badge/Agent%20Skills-Standard-green)](https://agentskills.io)
 [![skills.sh](https://img.shields.io/badge/skills.sh-Compatible-blue)](https://skills.sh)
-[![Multi-Runtime](https://img.shields.io/badge/Runtime-Claude%20Code%20·%20Codex%20·%20Cursor%20·%20OpenClaw%20·%20Hermes-blueviolet)](#安装)
 [![Nuwa](https://img.shields.io/badge/Made%20with-女娲.skill-orange)](https://github.com/alchaincyf/nuwa-skill)
 
 <br>
@@ -26,7 +25,7 @@
 11个关键决策记录和完整人生时间线的深度调研，<br>
 提炼5个核心心智模型、8条决策启发式和完整的表达DNA。
 
-[看效果](#效果示例) · [安装](#安装) · [蒸馏了什么](#蒸馏了什么) · [调研来源](#调研来源)
+[看效果](#效果示例) · [蒸馏了什么](#蒸馏了什么) · [调研来源](#调研来源)
 
 </div>
 
@@ -173,53 +172,7 @@
 
 > 完整对话记录在 [`examples/`](examples/) 目录。
 
-这不是ChatGPT套了个张雪峰面具。每段回应都在运用张雪峰的具体心智模型——「社会筛子论」「就业倒推法」「阶层现实主义」「不可替代性检验」。它不复读语录，它用张雪峰的认知框架分析你的问题。
-
----
-
-## 安装
-
-本 skill 基于开放的 [Agent Skills](https://agentskills.io) 协议，可在任何 skills-compatible 的 AI agent runtime 中运行（Claude Code、Codex、Cursor、OpenClaw、Hermes Agent、CodeBuddy、Workbuddy、Gemini CLI、OpenCode 等 50+ runtime）。
-
-### 方式一：一行命令（推荐，跨 runtime 自动检测）
-
-```bash
-npx skills add alchaincyf/zhangxuefeng-skill
-```
-
-通用 CLI 安装器（[vercel-labs/skills](https://github.com/vercel-labs/skills)，支持 55+ runtime）会自动识别当前 runtime 并把 skill 放到正确目录。需要指定 runtime 时加 `-a claude-code` / `-a codex` / `-a cursor` / `-a openclaw` 等参数。
-
-### 方式二：手动安装
-
-<details>
-<summary>展开查看各 runtime 的 skills 目录</summary>
-
-| Runtime | 安装路径 |
-|---|---|
-| Claude Code | `~/.claude/skills/zhangxuefeng-skill/` |
-| Codex CLI | `~/.codex/skills/zhangxuefeng-skill/` |
-| Cursor | `~/.cursor/skills/zhangxuefeng-skill/` |
-| OpenClaw | `~/.openclaw/workspace/skills/zhangxuefeng-skill/` |
-| Hermes Agent | 跑该 runtime 的 install 脚本或 clone 到其 skills 目录 |
-
-```bash
-git clone https://github.com/alchaincyf/zhangxuefeng-skill <对应路径>
-```
-
-</details>
-
-### 方式三：作为参考资料使用
-
-即使 runtime 不支持 Agent Skills 自动加载，你也可以把 `SKILL.md` 的内容粘贴进对话——它本质就是一份 markdown + YAML frontmatter。
-
-### 使用
-
-装好后，告诉你的 agent：
-```
-> 用张雪峰的视角帮我分析这个专业选择
-> 张雪峰会怎么看这个职业方向？
-> 切换到张雪峰，我孩子要填志愿了
-```
+这不是ChatGPT套了个张雪峰面具。每段回应都在运用**张雪峰的具体心智模型**——「社会筛子论」「就业倒推法」「阶层现实主义」「不可替代性检验」。它不复读语录，它用**张雪峰的认知框架**分析你的问题。
 
 ---
 
@@ -289,92 +242,3 @@ git clone https://github.com/alchaincyf/zhangxuefeng-skill <对应路径>
 
 信息源已排除知乎/微信公众号/百度百科。
 
----
-
-## 这个Skill是怎么造出来的
-
-由 [女娲.skill](https://github.com/alchaincyf/nuwa-skill) 自动生成。
-
-女娲的工作流程：输入一个名字 → 6个Agent并行调研（著作/对话/表达/批评/决策/时间线）→ 交叉验证提炼心智模型 → 构建SKILL.md → 质量验证（3个已知测试 + 1个边缘测试 + 风格测试）。
-
-想蒸馏其他人？安装女娲：
-
-```bash
-npx skills add alchaincyf/nuwa-skill
-```
-
-然后说「蒸馏一个XXX」就行了。
-
----
-
-## 仓库结构
-
-```
-zhangxuefeng-skill/
-├── README.md
-├── SKILL.md                              # 可直接安装使用
-├── references/
-│   └── research/                         # 6个调研文件
-│       ├── 01-writings.md
-│       ├── 02-conversations.md
-│       ├── 03-expression-dna.md
-│       ├── 04-external-views.md
-│       ├── 05-decisions.md
-│       └── 06-timeline.md
-└── examples/
-    └── demo-conversation.md              # 实战对话记录
-```
-
----
-
-## 更多.skill
-
-女娲已蒸馏的其他人物，每个都可独立安装：
-
-| 人物 | 领域 | 安装 |
-|------|------|------|
-| [乔布斯.skill](https://github.com/alchaincyf/steve-jobs-skill) | 产品/设计/战略 | `npx skills add alchaincyf/steve-jobs-skill` |
-| [马斯克.skill](https://github.com/alchaincyf/elon-musk-skill) | 工程/成本/第一性原理 | `npx skills add alchaincyf/elon-musk-skill` |
-| [纳瓦尔.skill](https://github.com/alchaincyf/naval-skill) | 财富/杠杆/人生哲学 | `npx skills add alchaincyf/naval-skill` |
-| [芒格.skill](https://github.com/alchaincyf/munger-skill) | 投资/多元思维/逆向思考 | `npx skills add alchaincyf/munger-skill` |
-| [费曼.skill](https://github.com/alchaincyf/feynman-skill) | 学习/教学/科学思维 | `npx skills add alchaincyf/feynman-skill` |
-| [塔勒布.skill](https://github.com/alchaincyf/taleb-skill) | 风险/反脆弱/不确定性 | `npx skills add alchaincyf/taleb-skill` |
-
-想蒸馏更多人？用 [女娲.skill](https://github.com/alchaincyf/nuwa-skill)，输入任何名字即可。
-
-## 许可证
-
-MIT — 随便用，随便改，随便蒸馏。
-
----
-
-
-
----
-
-## 关于作者
-
-**花叔 Huashu** — AI Native Coder，独立开发者，代表作：小猫补光灯（AppStore 付费榜 Top1）
-
-| 平台 | 链接 |
-|------|------|
-| 🌐 官网 | [bookai.top](https://bookai.top) · [huasheng.ai](https://www.huasheng.ai) |
-| 𝕏 Twitter | [@AlchainHust](https://x.com/AlchainHust) |
-| 📺 B站 | [花叔](https://space.bilibili.com/14097567) |
-| ▶️ YouTube | [@Alchain](https://www.youtube.com/@Alchain) |
-| 📕 小红书 | [花叔](https://www.xiaohongshu.com/user/profile/5abc6f17e8ac2b109179dfdf) |
-| 💬 公众号 | 微信搜「花叔」或扫码关注 ↓ |
-
-<img src="wechat-qrcode.jpg" alt="公众号二维码" width="360">
-
-<div align="center">
-
-*人生真好玩儿，下辈子还来。*
-
-<br>
-
-MIT License © [花叔 Huashu](https://github.com/alchaincyf)
-
-Made with [女娲.skill](https://github.com/alchaincyf/nuwa-skill)
-
-</div>
